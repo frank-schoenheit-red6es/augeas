@@ -92,5 +92,7 @@ let lns      = IniFile.lns record comment
 (* Variable: filter *)
 let filter   = incl "/etc/subversion/config"
              . incl "/etc/subversion/servers"
+             . incl (Sys.getenv("HOME") . "/.subversion/config")
+             . incl (Sys.getenv("HOME") . "/.subversion/servers")
 
 let xfm      = transform lns filter
